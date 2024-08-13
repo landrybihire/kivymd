@@ -1,0 +1,1718 @@
+
+
+MDScreenManager:
+    
+    MDScreen:
+        name: "screen1"
+        md_bg_color: app.theme_cls.backgroundColor
+        MDNavigationLayout:
+            
+            MDScreenManager:
+                
+                MDScreen:
+                    
+                    MDLabel:
+                        text: 'Visualise tes objectifs. Faites-en une réalité !'
+                        halign: 'center'
+                        pos_hint: {'center_x': .5,'center_y': .87}
+                        theme_font_size: 'Custom'
+                        theme_width: 'Custom'
+                        font_size: "14sp"    
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_a.set_state("toggle")
+                        
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'brightness-6'
+                        pos_hint: {'center_x': .9,'center_y': .95}
+                        on_press: app.change_theme()
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+
+                    MDGridLayout:
+                        cols: 2
+                        spacing: 10
+                        padding: 10
+                        adaptive_size: True
+                        adaptive_width: True
+                        adaptive_height: True
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        md_bg_color: app.theme_cls.backgroundColor
+                        radius: [20, 20, 20, 20]
+                    
+                        MDButton:
+                            style: 'tonal'
+                            size: dp(200), dp(120)
+                            on_release: app.file_manager_open()
+                            MDButtonText:
+                                text:'Fichier          '
+                                theme_text_color: "Primary"
+                                halign: 'center'
+                                valign: 'bottom'
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'folder-home'  
+                                theme_icon_color: "Primary"
+
+                        MDButton:
+                            style: 'tonal'
+                            size: dp(200), dp(120)
+                            on_release: app.file_manager_open_video()
+                            MDButtonText:
+                                text:'Videos         '
+                                theme_text_color: "Primary"
+                                halign: 'center'
+                                valign: 'bottom'
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'movie'  
+                                theme_icon_color: "Primary"
+                    
+
+                        MDButton:
+                            style: 'tonal'
+                            size: dp(200), dp(120)
+                            on_release: app.file_manager_open_audio()
+                            MDButtonText:
+                                text:'Audios          '
+                                theme_text_color: "Primary"
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'music'  
+                                theme_icon_color: "Primary"
+                    
+
+                        MDButton:
+                            style: 'tonal'
+                            size: dp(200), dp(120)
+                            on_release: app.file_manager_open_image()
+                            MDButtonText:
+                                text:'Images        '
+                                theme_text_color: "Primary"
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'image'  
+                                theme_icon_color: "Primary"
+                    
+
+                        MDButton:
+                            style: 'tonal'
+                            size: dp(200), dp(120)
+                            on_release: app.file_manager_open_document()
+                            MDButtonText:
+                                text:'Documents '
+                                theme_text_color: "Primary"
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'file-document'  
+                                theme_icon_color: "Primary"
+                    
+
+                        MDButton:
+                            style: 'tonal'
+                            size: dp(200), dp(120)
+                            on_release: app.file_manager_open_autre()
+                            MDButtonText:
+                                text:'Autres          '
+                                theme_text_color: "Primary"
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'file-plus'  
+                                theme_icon_color: "Primary"
+
+            MDNavigationDrawer:
+                id: nav_drawer_a
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+    
+    MDScreen:
+        name: "screen2"
+        md_bg_color: app.theme_cls.backgroundColor
+        
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_b.set_state("toggle")
+                                
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+                    MDListItem:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        size_hint_x: .8
+                        MDListItemHeadlineText:
+                            text: "Headline"
+
+            MDNavigationDrawer:
+                id: nav_drawer_b
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+            
+
+                
+
+    MDScreen:
+        name: "screen3"
+        md_bg_color: app.theme_cls.backgroundColor
+        
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_c.set_state("toggle")
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+            MDNavigationDrawer:
+                id: nav_drawer_c
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+
+                
+
+    MDScreen:
+        name: "screen4"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+                    
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_d.set_state("toggle")
+                            
+                    MDLabel:
+                        text: "Rien de plus simple ! \n PDF vers DOCX "
+                        halign: 'center'
+                        pos_hint: {'center_x': .5,'center_y': .95}
+                        theme_font_size: 'Custom'
+                        theme_width: 'Custom'
+                        font_size: "14sp"
+
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'swap-vertical-bold'
+                        on_release: root.current = "screen41"
+                        pos_hint: {'center_x': .9,'center_y': .95}     
+                    
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+                    MDCard:
+                        radius: 22,
+                        size_hint: None, None 
+                        size: "295dp", "80dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        pos_hint: {'center_x': .5,'center_y': .8}
+
+                        MDButton:
+                            style: 'text'
+                            size: dp(40), dp(75)
+                            radius: 21,
+                            on_release:  app.show_filechooser()
+                            elevation: 20
+                            MDButtonText:
+                                text:'Import PDF'
+                                theme_text_color: "Custom"
+                                text_color: 'green'
+                                halign: 'center'
+                                valign: 'center'
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'plus'  
+                                theme_icon_color: "Custom"
+                                icon_color: 'green'
+
+
+                        MDLabel:
+                            id: pdf_label
+                            text: "Fichier selectionné :"
+                            halign: 'center'
+                            valign: 'center'
+                            theme_font_size: 'Custom'
+                            theme_width: 'Custom'
+                            font_size: "12sp"
+
+                        FileChooserIconView:
+                            id: filechooser
+                            path: '/'
+                            on_selection: app.selected_file(*args[1])
+                                
+
+                    MDCard:
+                        style: 'outlined'
+                        size: "150dp", "150dp"
+                        size_hint: None, None 
+                        spacing: 21.5
+                        radius: 22,
+                        pos_hint: {'center_x': .5,'center_y': .55}
+
+
+                    MDButton:
+                        style: 'tonal'
+                        size: dp(40), dp(75)
+                        radius: 21,
+                        pos_hint: {'center_x': .75,'center_y': .3}
+                        on_release: app.file_manager_open()
+                        MDButtonText:
+                            id: text
+                            text:'Convertir'
+                            theme_text_color: "Custom"
+                            text_color: 'red'
+                            halign: 'center'
+                            valign: 'center'
+                            bold: True
+                        MDButtonIcon:
+                            icon_color: 'blue'
+                            icon: 'content-save-check' 
+                            theme_icon_color: "Custom"
+                    MDButton:
+                        style: 'tonal'
+                        size: dp(40), dp(75)
+                        radius: 21,
+                        pos_hint: {'center_x': .25,'center_y': .3}
+                        on_release: app.file_manager_open()
+                        MDButtonText:
+                            id: text
+                            text:'Convertir'
+                            theme_text_color: "Custom"
+                            text_color: 'blue'
+                            halign: 'center'
+                            valign: 'center'
+                            bold: True
+                        MDButtonIcon:
+                            icon_color: 'blue'
+                            icon: 'star-four-points'  
+                            theme_icon_color: "Custom"
+
+            
+            MDNavigationDrawer:
+                id: nav_drawer_d
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+                
+                    
+    MDScreen:
+        name: "screen41"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+                    
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_e.set_state("toggle")
+                            
+                    MDLabel:
+                        text: "Rien de plus simple ! \n DOCX vers PDF "
+                        halign: 'center'
+                        pos_hint: {'center_x': .5,'center_y': .95}
+                        theme_font_size: 'Custom'
+                        theme_width: 'Custom'
+                        font_size: "14sp"
+
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'swap-vertical-bold'
+                        on_release: root.current = 'screen4'
+                        pos_hint: {'center_x': .9,'center_y': .95}   
+                        
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+                    
+                    MDCard:
+                        radius: 22,
+                        size_hint: None, None 
+                        size: "295dp", "80dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        pos_hint: {'center_x': .5,'center_y': .8}
+
+                        MDButton:
+                            style: 'text'
+                            size: dp(40), dp(75)
+                            radius: 21,
+                            on_press: app.import_file()
+                            elevation: 20
+                            MDButtonText:
+                                text:'Import DOCX'
+                                theme_text_color: "Custom"
+                                text_color: 'green'
+                                halign: 'center'
+                                valign: 'center'
+                                bold: True
+                            MDButtonIcon:
+                                icon: 'plus'  
+                                theme_icon_color: "Custom"
+                                icon_color: 'green'
+
+
+                        MDLabel:
+                            text: os.path.expanduser("~")
+                            halign: 'center'
+                            valign: 'center'
+                            theme_font_size: 'Custom'
+                            theme_width: 'Custom'
+                            font_size: "12sp"
+
+                    MDCard:
+                        style: 'outlined'
+                        size: "150dp", "150dp"
+                        size_hint: None, None 
+                        spacing: 21.5
+                        radius: 22,
+                        pos_hint: {'center_x': .5,'center_y': .55}
+
+                    MDButton:
+                        style: 'tonal'
+                        size: dp(40), dp(75)
+                        radius: 21,
+                        pos_hint: {'center_x': .5,'center_y': .3}
+                        on_release: app.file_manager_open()
+                        MDButtonText:
+                            id: text
+                            text:'Convertir'
+                            theme_text_color: "Custom"
+                            text_color: 'red'
+                            halign: 'center'
+                            valign: 'center'
+                            bold: True
+                        MDButtonIcon:
+                            icon_color: 'blue'
+                            icon: 'content-save-check' 
+                            theme_icon_color: "Custom"
+
+            
+            MDNavigationDrawer:
+                id: nav_drawer_e
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+                
+
+    MDScreen:
+        name: "screen5"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+                    
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_f.set_state("toggle")
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+            
+            MDNavigationDrawer:
+                id: nav_drawer_f
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+                
+    
+
+    MDScreen:
+        name: "screen6"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+                    
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_g.set_state("toggle")
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+            MDNavigationDrawer:
+                id: nav_drawer_g
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+
+    MDScreen:
+        
+        name: "screen7"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_h.set_state("toggle")
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+            
+            MDNavigationDrawer:
+                id: nav_drawer_h
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+                
+
+    
+    MDScreen:
+        name: "screen8"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+                    
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_i.set_state("toggle")
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+            
+            MDNavigationDrawer:
+                id: nav_drawer_i
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+                
+
+    
+    MDScreen:
+        name: "screen9"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:                  
+
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_j.set_state("toggle")
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+            
+            MDNavigationDrawer:
+                id: nav_drawer_j
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+                
+
+    MDScreen:
+        name: "screen10"
+        md_bg_color: app.theme_cls.backgroundColor
+
+        MDNavigationLayout:
+                
+            MDScreenManager:
+                
+                MDScreen:
+                    
+                    MDIconButton:
+                        style:'tonal'
+                        icon: 'menu'
+                        pos_hint: {'center_x': .1,'center_y': .95}
+                        elevation_levels: dp(10)
+                        on_release: nav_drawer_k.set_state("toggle")
+
+                    MDCard:
+                        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                        size_hint: None, None 
+                        size: "295dp", "45dp"
+                        spacing: 21.5
+                        padding: 2
+                        radius: 22,
+                        elevation: 20
+                        md_bg_color: app.theme_cls.primaryColor
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'home-circle'
+                            on_release: root.current = "screen1"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'broom'
+                            on_release: root.current = "screen2"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'infinity'
+                            on_release: root.current = "screen3"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'file-swap'
+                            on_release: root.current = "screen4"
+
+                        MDIconButton:
+                            style:'standard'
+                            icon: 'cog'
+                            on_release: root.current = "screen5"
+
+            MDNavigationDrawer:
+                id: nav_drawer_k
+                radius: 0, dp(16), dp(16), 0
+
+                MDNavigationDrawerMenu:
+                        
+                    MDNavigationDrawerLabel:
+                        text: 'Menu'
+
+                    MDNavigationDrawerItem:
+                        
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'account'
+
+                        MDNavigationDrawerItemText:
+                            text:"Profile(s)"
+        
+                    MDNavigationDrawerItem:
+                            
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'folder'
+
+                        MDNavigationDrawerItemText:
+                            text:"Fichiers"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'movie'
+
+                        MDNavigationDrawerItemText:
+                            text:"Vidéos"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'music'
+
+                        MDNavigationDrawerItemText:
+                            text:"Musiques"
+
+                    MDNavigationDrawerItem:
+                                
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'image'
+
+                        MDNavigationDrawerItemText:
+                            text:"Images"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-document'
+
+                        MDNavigationDrawerItemText:
+                            text:"Documents"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'file-plus'
+
+                        MDNavigationDrawerItemText:
+                            text:"Autres"
+
+                    MDNavigationDrawerItem:
+                                    
+                        MDNavigationDrawerItemLeadingIcon:
+                            icon: 'cog'
+
+                        MDNavigationDrawerItemText:
+                            text:"Paramètres"
+
+
+                
+
+                        
+                        
+                            
+                        
+                            
+                            
+                        
+        
+
+
+
+            
+            
+                
+            
